@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="controllers.AddProductFormController" 
+            fitToWidth="true" 
+            style="-fx-background-color: transparent; -fx-background: transparent;"
+            prefWidth="450" prefHeight="650">
+    <content>
+        <VBox spacing="15" style="-fx-background-color: #FAF7F4; -fx-border-radius: 12; -fx-background-radius: 12;">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+            
+            <!-- Titre -->
+            <Label text="Ajouter / Modifier Produit" style="-fx-font-weight: bold; -fx-text-fill: #6B4423;">
+                <font>
+                    <Font size="18" />
+                </font>
+            </Label>
+            
+            <Separator style="-fx-background-color: #D4B896;" />
+            
+            <!-- Zone Image -->
+            <VBox spacing="10" alignment="CENTER" style="-fx-background-color: white; -fx-border-color: #D4C5B9; -fx-border-radius: 10; -fx-border-width: 2; -fx-padding: 15;">
+                <ImageView fx:id="imgPreview" fitWidth="120" fitHeight="120" preserveRatio="true" />
+                <Button fx:id="btnChooseImage" text="📁 Choisir une image" style="-fx-background-color: #9C7A5C; -fx-text-fill: white; -fx-background-radius: 8; -fx-cursor: hand;">
+                    <padding>
+                        <Insets bottom="8" left="15" right="15" top="8" />
+                    </padding>
+                </Button>
+            </VBox>
+            
+            <!-- Nom -->
+            <VBox spacing="5">
+                <Label text="Nom du produit *" style="-fx-text-fill: #6B4423; -fx-font-weight: bold;" />
+                <TextField fx:id="txtName" promptText="Nom du produit" style="-fx-background-color: white; -fx-border-color: #D4C5B9; -fx-border-radius: 8;">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+                </TextField>
+            </VBox>
+            
+            <!-- Catégorie -->
+            <VBox spacing="5">
+                <Label text="Catégorie" style="-fx-text-fill: #6B4423; -fx-font-weight: bold;" />
+                <TextField fx:id="txtCategory" promptText="Catégorie" style="-fx-background-color: white; -fx-border-color: #D4C5B9; -fx-border-radius: 8;">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+                </TextField>
+            </VBox>
+            
+            <!-- Prix et Stock -->
+            <HBox spacing="10">
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Prix (MAD) *" style="-fx-text-fill: #6B4423; -fx-font-weight: bold;" />
+                    <TextField fx:id="txtPrice" promptText="0.00" style="-fx-background-color: white; -fx-border-color: #D4C5B9; -fx-border-radius: 8;">
+                        <padding>
+                            <Insets bottom="10" left="10" right="10" top="10" />
+                        </padding>
+                    </TextField>
+                </VBox>
+                
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Quantité *" style="-fx-text-fill: #6B4423; -fx-font-weight: bold;" />
+                    <TextField fx:id="txtStock" promptText="0" style="-fx-background-color: white; -fx-border-color: #D4C5B9; -fx-border-radius: 8;">
+                        <padding>
+                            <Insets bottom="10" left="10" right="10" top="10" />
+                        </padding>
+                    </TextField>
+                </VBox>
+            </HBox>
+            
+            <!-- Taille et Couleur -->
+            <HBox spacing="10">
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Taille" style="-fx-text-fill: #6B4423; -fx-font-weight: bold;" />
+                    <TextField fx:id="txtSize" promptText="S, M, L..." style="-fx-background-color: white; -fx-border-color: #D4C5B9; -fx-border-radius: 8;">
+                        <padding>
+                            <Insets bottom="10" left="10" right="10" top="10" />
+                        </padding>
+                    </TextField>
+                </VBox>
+                
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Couleur" style="-fx-text-fill: #6B4423; -fx-font-weight: bold;" />
+                    <TextField fx:id="txtColor" promptText="Couleur" style="-fx-background-color: white; -fx-border-color: #D4C5B9; -fx-border-radius: 8;">
+                        <padding>
+                            <Insets bottom="10" left="10" right="10" top="10" />
+                        </padding>
+                    </TextField>
+                </VBox>
+            </HBox>
+            
+            <!-- Description -->
+            <VBox spacing="5">
+                <Label text="Description" style="-fx-text-fill: #6B4423; -fx-font-weight: bold;" />
+                <TextArea fx:id="txtDescription" promptText="Description du produit..." wrapText="true" prefRowCount="4" style="-fx-background-color: white; -fx-border-color: #D4C5B9; -fx-border-radius: 8;">
+                    <padding>
+                        <Insets bottom="10" left="10" right="10" top="10" />
+                    </padding>
+                </TextArea>
+            </VBox>
+            
+            <!-- Boutons -->
+            <HBox spacing="10">
+                <VBox.margin>
+                    <Insets top="10" />
+                </VBox.margin>
+                
+                <Button fx:id="btnSave" text="💾 Enregistrer" onAction="#handleSave" maxWidth="Infinity" style="-fx-background-color: #9C7A5C; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand;">
+                    <padding>
+                        <Insets bottom="12" left="20" right="20" top="12" />
+                    </padding>
+                    <HBox.hgrow>ALWAYS</HBox.hgrow>
+                </Button>
+                
+                <Button fx:id="btnCancel" text="❌ Annuler" onAction="#handleCancel" maxWidth="Infinity" style="-fx-background-color: #C5A572; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand;">
+                    <padding>
+                        <Insets bottom="12" left="20" right="20" top="12" />
+                    </padding>
+                    <HBox.hgrow>ALWAYS</HBox.hgrow>
+                </Button>
+            </HBox>
+        </VBox>
+    </content>
+</ScrollPane>

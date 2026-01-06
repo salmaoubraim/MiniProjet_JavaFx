@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="450.0" prefWidth="500.0" spacing="20.0" style="-fx-background-color: #f5f0eb;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UserFormController">
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+    </padding>
+    
+    <VBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(156,106,74,0.2), 15,0,0,3);">
+        <padding>
+            <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+        </padding>
+        
+        <!-- Titre -->
+        <Label fx:id="lblTitle" style="-fx-font-weight: bold;" text="Ajouter un Utilisateur" textFill="#6B4423">
+            <font>
+                <Font size="22" />
+            </font>
+        </Label>
+        
+        <Separator style="-fx-background-color: #D4B896;" />
+        
+        <!-- Formulaire -->
+        <VBox spacing="15.0">
+            <!-- Nom d'utilisateur -->
+            <VBox spacing="8.0">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Nom d'utilisateur" textFill="#6B4423" />
+                <TextField fx:id="txtUsername" promptText="Entrez le nom d'utilisateur" style="-fx-background-color: #FAF7F4; -fx-border-color: #C9A88A; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-font-size: 14;">
+                    <padding>
+                        <Insets bottom="10" left="15" right="15" top="10" />
+                    </padding>
+                </TextField>
+            </VBox>
+            
+            <!-- Email -->
+            <VBox spacing="8.0">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Email" textFill="#6B4423" />
+                <TextField fx:id="txtEmail" promptText="Entrez l'email" style="-fx-background-color: #FAF7F4; -fx-border-color: #C9A88A; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-font-size: 14;">
+                    <padding>
+                        <Insets bottom="10" left="15" right="15" top="10" />
+                    </padding>
+                </TextField>
+            </VBox>
+            
+            <!-- Mot de passe (visible seulement pour ajout) -->
+            <VBox fx:id="passwordBox" spacing="8.0">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Mot de passe" textFill="#6B4423" />
+                <PasswordField fx:id="txtPassword" promptText="Entrez le mot de passe" style="-fx-background-color: #FAF7F4; -fx-border-color: #C9A88A; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-font-size: 14;">
+                    <padding>
+                        <Insets bottom="10" left="15" right="15" top="10" />
+                    </padding>
+                </PasswordField>
+            </VBox>
+            
+            <!-- Rôle -->
+            <VBox spacing="8.0">
+                <Label style="-fx-font-weight: bold; -fx-font-size: 14;" text="Rôle" textFill="#6B4423" />
+                <ComboBox fx:id="cbRole" prefWidth="450.0" promptText="Sélectionnez le rôle" style="-fx-background-color: #FAF7F4; -fx-border-color: #C9A88A; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-font-size: 14;">
+                    <padding>
+                        <Insets bottom="5" left="10" right="10" top="5" />
+                    </padding>
+                </ComboBox>
+            </VBox>
+        </VBox>
+        
+        <!-- Boutons -->
+        <HBox alignment="CENTER_RIGHT" spacing="15.0">
+            <Button onAction="#handleCancel" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #D4B896; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand; -fx-font-size: 14;" text="Annuler">
+                <padding>
+                    <Insets bottom="10" left="20" right="20" top="10" />
+                </padding>
+            </Button>
+            <Button fx:id="btnSave" onAction="#handleSave" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #9C7A5C; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand; -fx-font-size: 14;" text="Enregistrer">
+                <padding>
+                    <Insets bottom="10" left="20" right="20" top="10" />
+                </padding>
+            </Button>
+        </HBox>
+    </VBox>
+</VBox>

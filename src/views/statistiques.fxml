@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="900.0" prefWidth="1083.0" spacing="25.0" style="-fx-background-color: #f5f1ed;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StatistiquesController">
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+   
+   <HBox alignment="CENTER_LEFT" spacing="15.0">
+      <Label style="-fx-font-size: 14px; -fx-text-fill: #5d4037;" text="Période:" />
+      <ComboBox fx:id="periodeComboBox" onAction="#actualiserStatistiques" prefWidth="180" style="-fx-background-color: white; -fx-border-color: #8d6e63; -fx-border-radius: 5; -fx-background-radius: 5;" />
+   </HBox>
+   
+   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+      <children>
+         
+         <!-- Carte 1: Chiffre d'affaires -->
+         <VBox prefHeight="105.0" prefWidth="250.0" spacing="8.0" style="-fx-background-color: linear-gradient(to bottom, #E8DCC8, #D4B896); -fx-background-radius: 8; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+            <Label style="-fx-font-size: 13px;" text="Chiffre d'Affaires" />
+            <Label fx:id="chiffreAffairesLabel" style="-fx-text-fill: #3e2723; -fx-font-size: 26px; -fx-font-weight: bold;" text="0.00 MAD" />
+         </VBox>
+         
+         <!-- Carte 2: Nombre de ventes -->
+         <VBox prefHeight="105.0" prefWidth="250.0" spacing="8.0" style="-fx-background-color: linear-gradient(to bottom, #E8DCC8, #D4B896); -fx-background-radius: 8; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+            <Label style="-fx-font-size: 13px;" text="Nombre de Ventes" />
+            <Label fx:id="nombreVentesLabel" style="-fx-text-fill: #3e2723; -fx-font-size: 26px; -fx-font-weight: bold;" text="0" />
+         </VBox>
+         
+         <!-- Carte 3: Ticket moyen -->
+         <VBox prefHeight="105.0" prefWidth="250.0" spacing="8.0" style="-fx-background-color: linear-gradient(to bottom, #E8DCC8, #D4B896); -fx-background-radius: 8; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+            <Label style="-fx-font-size: 13px;" text="Ticket Moyen" />
+            <Label fx:id="ticketMoyenLabel" style="-fx-text-fill: #3e2723; -fx-font-size: 26px; -fx-font-weight: bold;" text="0.00 MAD" />
+         </VBox>
+         
+         <!-- Carte 4: Articles vendus -->
+         <VBox prefHeight="105.0" prefWidth="250.0" spacing="8.0" style="-fx-background-color: linear-gradient(to bottom, #E8DCC8, #D4B896); -fx-background-radius: 8; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+            <Label style="-fx-font-size: 13px;" text="Articles Vendus" />
+            <Label fx:id="articlesVendusLabel" style="-fx-text-fill: #3e2723; -fx-font-size: 26px; -fx-font-weight: bold;" text="0" />
+         </VBox>
+      </children>
+   </HBox>
+   
+   <!-- Section: Graphique d'évolution des ventes -->
+   <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);">
+      <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #3e2723;" text="📈 Évolution" />
+      
+            <LineChart fx:id="ventesChart" legendVisible="true" prefHeight="300.0" style="-fx-background-color: transparent;">
+         <xAxis>
+            <CategoryAxis label="Période" side="BOTTOM" style="-fx-font-size: 11px; -fx-tick-label-fill: #5d4037;" fx:id="xAxis" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis fx:id="yAxis" label="Chiffre d'Affaires (MAD)" side="LEFT" style="-fx-font-size: 11px; -fx-tick-label-fill: #5d4037;" />
+         </yAxis>
+      </LineChart>
+   </VBox>
+   
+   <!-- Section: Produits les plus vendus -->
+   <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 8; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);">
+      <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #3e2723;" text="Top 5 Produits les Plus Vendus" />
+      
+      <GridPane hgap="20.0" vgap="12.0">
+         <columnConstraints>
+            <ColumnConstraints percentWidth="60.0" />
+            <ColumnConstraints percentWidth="20.0" />
+            <ColumnConstraints percentWidth="20.0" />
+         </columnConstraints>
+         
+         <rowConstraints>
+            <RowConstraints minHeight="35.0" />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+         
+         <!-- En-têtes -->
+         <Label style="-fx-font-weight: bold; -fx-text-fill: #5d4037; -fx-font-size: 13px;" text="Produit" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+         <Label style="-fx-font-weight: bold; -fx-text-fill: #5d4037; -fx-font-size: 13px;" text="Quantité" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+         <Label style="-fx-font-weight: bold; -fx-text-fill: #5d4037; -fx-font-size: 13px;" text="CA (MAD)" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+         
+         <!-- Produit 1 -->
+         <Label fx:id="produit1Nom" style="-fx-text-fill: #4e342e;" text="-" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+         <Label fx:id="produit1Quantite" style="-fx-text-fill: #6d4c41;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+         <Label fx:id="produit1CA" style="-fx-text-fill: #6d4c41; -fx-font-weight: bold;" text="0.00" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+         
+         <!-- Produit 2 -->
+         <Label fx:id="produit2Nom" style="-fx-text-fill: #4e342e;" text="-" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+         <Label fx:id="produit2Quantite" style="-fx-text-fill: #6d4c41;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         <Label fx:id="produit2CA" style="-fx-text-fill: #6d4c41; -fx-font-weight: bold;" text="0.00" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         
+         <!-- Produit 3 -->
+         <Label fx:id="produit3Nom" style="-fx-text-fill: #4e342e;" text="-" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+         <Label fx:id="produit3Quantite" style="-fx-text-fill: #6d4c41;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+         <Label fx:id="produit3CA" style="-fx-text-fill: #6d4c41; -fx-font-weight: bold;" text="0.00" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+         
+         <!-- Produit 4 -->
+         <Label fx:id="produit4Nom" style="-fx-text-fill: #4e342e;" text="-" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+         <Label fx:id="produit4Quantite" style="-fx-text-fill: #6d4c41;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+         <Label fx:id="produit4CA" style="-fx-text-fill: #6d4c41; -fx-font-weight: bold;" text="0.00" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+         
+         <!-- Produit 5 -->
+         <Label fx:id="produit5Nom" style="-fx-text-fill: #4e342e;" text="-" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+         <Label fx:id="produit5Quantite" style="-fx-text-fill: #6d4c41;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+         <Label fx:id="produit5CA" style="-fx-text-fill: #6d4c41; -fx-font-weight: bold;" text="0.00" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+      </GridPane>
+   </VBox>
+   
+   <!-- Section: Stock faible -->
+   <VBox spacing="12.0" style="-fx-background-color: #fff3e0; -fx-border-color: #d7a86e; -fx-border-width: 2; -fx-border-radius: 8; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);">
+      <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #8d6e63;" text="⚠️ Alerte Stock Faible" />
+      <Label style="-fx-font-size: 12px; -fx-text-fill: #a1887f;" text="Produits avec moins de 10 unités en stock" />
+      
+      <VBox fx:id="stockFaibleVBox" spacing="8.0">
+         <Label fx:id="stockFaibleLabel" style="-fx-font-style: italic; -fx-text-fill: #8d6e63;" text="Aucun produit en stock faible" />
+      </VBox>
+   </VBox>
+</VBox>

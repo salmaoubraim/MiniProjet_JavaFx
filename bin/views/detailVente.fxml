@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="15.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DetailVenteController">
+   <padding>
+      <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+   </padding>
+   
+   <HBox spacing="20.0">
+      <Label fx:id="idVenteLabel" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+      <Label fx:id="dateVenteLabel" style="-fx-font-size: 14px;" />
+   </HBox>
+   
+   <TableView fx:id="detailTableView" VBox.vgrow="ALWAYS">
+      <columns>
+         <TableColumn fx:id="colProduit" prefWidth="200.0" text="Produit" />
+         <TableColumn fx:id="colQuantite" prefWidth="80.0" text="Quantité" />
+         <TableColumn fx:id="colPrixUnitaire" prefWidth="100.0" text="Prix Unit." />
+         <TableColumn fx:id="colTotal" prefWidth="100.0" text="Total" />
+      </columns>
+   </TableView>
+   
+   <HBox alignment="CENTER_RIGHT" spacing="10.0">
+      <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Total de la vente:" />
+      <Label fx:id="totalVenteLabel" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: green;" />
+   </HBox>
+   
+   <Button onAction="#fermer" text="Fermer" />
+</VBox>

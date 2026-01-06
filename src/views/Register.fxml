@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToHeight="false" fitToWidth="true" prefHeight="475.0" prefWidth="498.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterController">
+   <content>
+      <VBox alignment="TOP_CENTER" maxWidth="550.0" prefHeight="1151.0" prefWidth="482.0" spacing="15" style="-fx-background-color: white;">
+         <padding>
+            <Insets bottom="30" left="40" right="40" top="30" />
+         </padding>
+
+         <!-- Titre et description -->
+         <VBox alignment="CENTER" spacing="8">
+            <Label style="-fx-text-fill: #2c3e50;" text="Créer un Compte">
+               <font><Font name="System Bold" size="28" /></font>
+            </Label>
+            <Label style="-fx-text-fill: #7f8c8d;" text="Remplissez le formulaire ci-dessous pour vous inscrire">
+               <font><Font size="13" /></font>
+            </Label>
+         </VBox>
+
+         <Separator style="-fx-background-color: #e0e0e0;">
+            <VBox.margin><Insets bottom="20" top="20" /></VBox.margin>
+         </Separator>
+
+         <!-- Champs du formulaire -->
+         <VBox spacing="20">
+
+            <!-- Username -->
+            <VBox spacing="8">
+               <Label style="-fx-text-fill: #34495e; -fx-font-weight: 600;" text="Nom d'utilisateur *">
+                  <font><Font size="13" /></font>
+               </Label>
+               <TextField fx:id="txtUsername" promptText="Choisissez un nom d'utilisateur unique" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-padding: 12 15; -fx-font-size: 14;" />
+               <Label style="-fx-text-fill: #95a5a6; -fx-font-size: 11;" text="Min. 3 caractères, lettres, chiffres et underscore uniquement" />
+            </VBox>
+
+            <!-- Email -->
+            <VBox spacing="8">
+               <Label style="-fx-text-fill: #34495e; -fx-font-weight: 600;" text="Email *">
+                  <font><Font size="13" /></font>
+               </Label>
+               <TextField fx:id="txtEmail" promptText="votre.email@exemple.com" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-padding: 12 15; -fx-font-size: 14;" />
+            </VBox>
+
+            <!-- Nom Complet -->
+            <VBox spacing="8">
+               <Label style="-fx-text-fill: #34495e; -fx-font-weight: 600;" text="Nom Complet *">
+                  <font><Font size="13" /></font>
+               </Label>
+               <TextField fx:id="txtFullName" promptText="Prénom et Nom" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-padding: 12 15; -fx-font-size: 14;" />
+            </VBox>
+
+            <!-- Téléphone -->
+            <VBox spacing="8">
+               <Label style="-fx-text-fill: #34495e; -fx-font-weight: 600;" text="Téléphone (optionnel)">
+                  <font><Font size="13" /></font>
+               </Label>
+               <TextField fx:id="txtPhone" promptText="+212 6XX XXX XXX" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-padding: 12 15; -fx-font-size: 14;" />
+            </VBox>
+
+            <!-- Rôle -->
+            <VBox spacing="8">
+               <Label style="-fx-text-fill: #34495e; -fx-font-weight: 600;" text="Rôle *">
+                  <font><Font size="13" /></font>
+               </Label>
+               <TextField fx:id="txtRole" promptText="Sélectionnez un rôle" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-padding: 12 15; -fx-font-size: 14;" />
+            </VBox>
+
+            <!-- Mot de passe -->
+            <VBox spacing="8">
+               <Label style="-fx-text-fill: #34495e; -fx-font-weight: 600;" text="Mot de passe *">
+                  <font><Font size="13" /></font>
+               </Label>
+               <PasswordField fx:id="txtPassword" promptText="Choisissez un mot de passe sécurisé" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-padding: 12 15; -fx-font-size: 14;" />
+               <Label style="-fx-text-fill: #95a5a6; -fx-font-size: 11;" text="Minimum 6 caractères" />
+            </VBox>
+
+            <!-- Confirmer mot de passe -->
+            <VBox spacing="8">
+               <Label style="-fx-text-fill: #34495e; -fx-font-weight: 600;" text="Confirmer le mot de passe *">
+                  <font><Font size="13" /></font>
+               </Label>
+               <PasswordField fx:id="txtConfirmPassword" promptText="Retapez votre mot de passe" style="-fx-background-color: #f8f9fa; -fx-background-radius: 8; -fx-border-color: #e0e0e0; -fx-border-radius: 8; -fx-border-width: 1.5; -fx-padding: 12 15; -fx-font-size: 14;" />
+            </VBox>
+
+         </VBox>
+
+         <Region minHeight="20" />
+
+         <!-- Boutons -->
+         <HBox alignment="CENTER" spacing="15">
+            <Button fx:id="btnCancel" onAction="#handleCancel" prefWidth="200.0" style="-fx-background-color: #ecf0f1; -fx-text-fill: #7f8c8d; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 12; -fx-cursor: hand;" text="Annuler" />
+            <Button fx:id="btnRegister" onAction="#handleRegister" prefWidth="200.0" style="-fx-background-color: #9C6A4A; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-font-size: 14; -fx-padding: 12; -fx-cursor: hand;" text="S'inscrire" />
+         </HBox>
+
+         <Region minHeight="15" />
+
+         <!-- Note -->
+         <Label style="-fx-text-fill: #95a5a6; -fx-font-size: 11;" text="* Champs obligatoires" wrapText="true">
+            <padding><Insets top="10" /></padding>
+         </Label>
+
+      </VBox>
+   </content>
+</ScrollPane>
