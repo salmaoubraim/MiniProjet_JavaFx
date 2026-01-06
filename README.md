@@ -1,5 +1,5 @@
 # MiniProjet_JavaFx
-Application de gestion d'une boutique de vétements
+Application de gestion d'une boutique de vêtements
 
 ### Capture 1
 ![Capture 1](captures/Capture1.png)
