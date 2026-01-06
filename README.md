@@ -1,17 +1,28 @@
 # MiniProjet_JavaFx
 Application de gestion d'une boutique de vêtements
 
-### Capture 1
-![Capture 1](captures/Capture1.png)
+---
 
-### Capture 2
-![Capture 2](captures/Capture2.png)
+## Login
+![Login](captures/Capture1.png)
 
-### Capture 3
-![Capture 3](captures/Capture3.png)
+---
 
-### Capture 4
-![Capture 4](captures/Capture4.png)
+## Tableau de bord 
+![Dashboard](captures/Capture2.png)
 
-### Capture 5
-![Capture 5](captures/Capture5.png)
+---
+
+## Gestion des produits
+![Produits](captures/Capture3.png)
+
+---
+
+## Gestion des ventes
+![Ventes](captures/Capture4.png)
+
+---
+
+## Gestion des utilisateurs
+![Utilisateurs](captures/Capture5.png)
+
